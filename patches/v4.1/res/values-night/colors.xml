@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 背景 -->
+    <color name="bg_app">#FF1A1A1A</color>
+    <color name="bg_card">#FF2A2A2A</color>
+    <color name="bg_normal">#FF2A2A2A</color>
+    <color name="bg_input">#FF3A3A3A</color>
+
+    <!-- 文本 -->
+    <color name="text_primary">#FFEDEDED</color>
+    <color name="text_secondary">#FFA8A8A8</color>
+    <color name="text_tertiary">#FF707070</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_70">#B3FFFFFF</color>
+
+    <!-- 状态色（深色背景下保持高对比度） -->
+    <color name="status_ok">#FF2DD4A7</color>
+    <color name="status_warn">#FFFFB23E</color>
+    <color name="status_err">#FFEF4146</color>
+
+    <!-- 气泡 -->
+    <color name="bubble_user">#FF10A37F</color>
+    <color name="bubble_ai">#FF2A2A2A</color>
+
+    <!-- 品牌色保持 -->
+    <color name="brand_primary">#FF10A37F</color>
+    <color name="brand_primary_light">#FF1F3D34</color>
+    <color name="brand_primary_dark">#FF0A6A4D</color>
+    <color name="brand_accent">#FF19C37D</color>
+</resources>

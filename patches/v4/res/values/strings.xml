@@ -1,0 +1,194 @@
+<resources>
+    <string name="app_name">GenieX 聊天</string>
+    <string name="blank_index_tip">请先导入文件再开始搜索。</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- 主界面按钮 -->
+    <string name="btn_send">发送</string>
+    <string name="btn_stop">停止</string>
+    <string name="btn_clear_history">清空</string>
+    <string name="btn_add_image">添加图片</string>
+    <string name="btn_load_model">加载</string>
+    <string name="btn_unload_model">卸载</string>
+    <string name="btn_download">下载</string>
+    <string name="btn_import">导入</string>
+    <string name="btn_models">模型</string>
+    <string name="btn_settings">设置</string>
+    <string name="compat_badge">设备兼容徽章</string>
+    <string name="prefill_speed_label">预填充</string>
+    <string name="decode_speed_label">解码</string>
+    <string name="ttft_label">TTFT</string>
+    <string name="hint_input">输入消息...</string>
+    <string name="tip_load_model_first">请先加载模型</string>
+
+    <!-- 顶栏菜单 -->
+    <string name="menu_models">模型管理</string>
+    <string name="menu_settings">设置</string>
+    <string name="menu_clear_chat">清空对话</string>
+    <string name="menu_unload">卸载模型</string>
+
+    <!-- 模型管理 Activity -->
+    <string name="model_manager_title">模型管理</string>
+    <string name="tab_gguf">GGUF 通用模型</string>
+    <string name="tab_qairt">QAIRT NPU 专属</string>
+    <string name="import_gguf">导入 GGUF</string>
+    <string name="close">关闭</string>
+    <string name="cancel">取消</string>
+    <string name="cancelled">已取消</string>
+    <string name="downloading">下载中…</string>
+    <string name="already_downloading">已有下载任务进行中</string>
+    <string name="need_download_first">尚未下载，请先点击下载按钮</string>
+    <string name="local_ready">%1$s 已就绪，点击「使用」加载</string>
+    <string name="download_complete">下载完成：%1$s</string>
+    <string name="download_complete_mb">已下载 %1$s（%2$d MB）</string>
+    <string name="download_failed">下载失败：%1$s</string>
+    <string name="hf_mirror_hint">镜像下载失败，请尝试：%1$s</string>
+    <string name="only_gguf">仅支持 .gguf 文件</string>
+    <string name="imported_mb">已导入 %1$s（%2$d MB）</string>
+    <string name="import_failed">导入失败</string>
+    <string name="confirm_delete">删除模型</string>
+    <string name="confirm_delete_msg">确定删除「%1$s」？此操作不可撤销。</string>
+    <string name="delete">删除</string>
+    <string name="deleted">已删除</string>
+    <string name="delete_failed">删除失败</string>
+    <string name="use_this">使用</string>
+    <string name="detail">详情</string>
+    <string name="device_info_fmt">本机：%1$s（%2$s，Htp %3$s）</string>
+    <string name="incompat_badge">不兼容本机</string>
+    <string name="compat_badge_ok">兼容本机</string>
+    <string name="file_missing">文件已丢失</string>
+    <string name="ready_local">✓ 已就绪</string>
+
+    <!-- 模型详情字段标签 -->
+    <string name="field_id">标识</string>
+    <string name="field_source">来源</string>
+    <string name="field_runtime">运行时</string>
+    <string name="field_type">类型</string>
+    <string name="field_author">作者</string>
+    <string name="field_license">许可证</string>
+    <string name="field_params">参数量</string>
+    <string name="field_weights_quant">权重量化</string>
+    <string name="field_kv_quant">KV 缓存量化</string>
+    <string name="field_inference_quant">推理量化</string>
+    <string name="field_max_context">最大上下文</string>
+    <string name="field_size">占用空间</string>
+    <string name="field_chipset">目标芯片</string>
+    <string name="field_compat_devices">兼容设备</string>
+    <string name="field_local_path">本地路径</string>
+    <string name="field_file_size">文件大小</string>
+    <string name="field_description">描述</string>
+    <string name="tokens_unit">tokens</string>
+
+    <!-- 设置 Activity -->
+    <string name="settings_title">设置</string>
+
+    <string name="cat_generation">生成参数</string>
+    <string name="pref_temperature">温度</string>
+    <string name="pref_temperature_summary">数值越高越发散，越低越确定</string>
+    <string name="pref_top_p">Top-P（核采样）</string>
+    <string name="pref_top_p_summary">概率阈值，截断长尾</string>
+    <string name="pref_top_k">Top-K</string>
+    <string name="pref_top_k_summary">限制候选词数量</string>
+    <string name="pref_rep_pen">重复惩罚</string>
+    <string name="pref_rep_pen_summary">抑制重复词（1.0 关闭）</string>
+    <string name="pref_max_tokens">最大生成长度</string>
+    <string name="pref_max_tokens_summary">单次回复最多生成的 token 数</string>
+    <string name="pref_enable_thinking">启用思维链</string>
+    <string name="pref_enable_thinking_summary">部分模型支持，会先输出推理过程</string>
+
+    <string name="cat_npu">NPU 与性能</string>
+    <string name="pref_npu_power_mode">NPU 性能模式</string>
+    <string name="pref_npu_power_mode_summary">低功耗模式可降低发热，但速度变慢</string>
+    <string name="pref_vtcm">VTCM 大小（MB）</string>
+    <string name="pref_vtcm_summary">0 表示驱动默认。越大越快，但更耗内存</string>
+    <string name="pref_cpu_threads_mode">CPU 线程数模式</string>
+    <string name="pref_cpu_threads_mode_summary">自动：按 CPU 大核数；手动：自行指定</string>
+    <string name="pref_cpu_threads">CPU 线程数（手动）</string>
+    <string name="pref_cpu_threads_summary">非 NPU 路径使用的线程数</string>
+    <string name="pref_thermal_throttle">温度保护</string>
+    <string name="pref_thermal_throttle_summary">限制线程与 GPU 层数，避免过热降频</string>
+
+    <string name="cat_download">下载</string>
+    <string name="pref_download_source">默认下载源</string>
+    <string name="pref_download_source_summary">HuggingFace 镜像源（hf-mirror.com）可加速国内下载</string>
+    <string name="pref_use_hf_mirror">优先使用 HF 镜像</string>
+    <string name="pref_use_hf_mirror_summary">国内下载更快，国外可能更慢</string>
+    <string name="pref_clear_models">清除所有已下载模型</string>
+    <string name="pref_clear_models_summary">释放存储空间（不会删除已导入的本地 GGUF）</string>
+    <string name="pref_disk_usage">磁盘占用</string>
+    <string name="pref_disk_usage_summary">点击查看详情</string>
+
+    <string name="cat_ui">界面</string>
+    <string name="pref_show_profiling">在回复下方显示性能数据</string>
+    <string name="pref_show_profiling_summary">显示 TTFT / 预填充速度 / 解码速度</string>
+    <string name="pref_chat_history">保留聊天历史</string>
+    <string name="pref_chat_history_summary">退出后下次启动时恢复对话</string>
+    <string name="pref_clear_history_now">立即清空聊天历史</string>
+    <string name="pref_clear_history_now_summary">删除本地保存的所有对话记录</string>
+
+    <string name="cat_log">日志</string>
+    <string name="pref_log_enabled">启用文件日志</string>
+    <string name="pref_log_enabled_summary">日志写入 /Android/data/com.geniex.demo/files/app.log</string>
+    <string name="pref_share_log">分享日志文件</string>
+    <string name="pref_share_log_summary">通过系统分享面板发送 app.log</string>
+    <string name="pref_clear_log">清空日志文件</string>
+    <string name="pref_clear_log_summary">将 app.log 截断为 0 字节</string>
+    <string name="log_empty">日志文件为空或不存在</string>
+    <string name="log_cleared">日志已清空</string>
+
+    <string name="cat_about">关于</string>
+    <string name="pref_version">版本</string>
+    <string name="pref_version_summary">点按查看构建详情</string>
+
+    <!-- 性能 footer -->
+    <string name="profile_summary_fmt">TTFT %1$s 毫秒 · 预填充 %2$s tok/s（%3$d tokens）· 解码 %4$s tok/s（%5$d tokens）· 停止原因：%6$s</string>
+
+    <!-- Toast -->
+    <string name="toast_model_picked">已选择：%1$s</string>
+    <string name="toast_history_cleared">聊天历史已清空</string>
+    <string name="toast_history_loaded">已恢复上次对话（%1$d 条）</string>
+    <string name="toast_models_cleared">已清除 %1$d 个模型，释放 %2$d MB</string>
+    <string name="toast_no_models_to_clear">没有可清除的已下载模型</string>
+    <string name="toast_unload_first">请先卸载当前模型</string>
+    <string name="toast_model_not_downloaded">模型未下载，请先点击下载</string>
+
+    <!-- 下载源选项 -->
+    <string-array name="download_source_entries">
+        <item>自动（SDK 默认）</item>
+        <item>HuggingFace 官方</item>
+        <item>HuggingFace 镜像（hf-mirror.com）</item>
+    </string-array>
+    <string-array name="download_source_values">
+        <item>auto</item>
+        <item>huggingface</item>
+        <item>hf_mirror</item>
+    </string-array>
+
+    <!-- CPU 线程模式 -->
+    <string-array name="cpu_threads_mode_entries">
+        <item>自动（按 CPU 大核数）</item>
+        <item>手动指定</item>
+    </string-array>
+    <string-array name="cpu_threads_mode_values">
+        <item>auto</item>
+        <item>custom</item>
+    </string-array>
+
+    <!-- NPU 性能模式 -->
+    <string-array name="npu_power_mode_entries">
+        <item>极速（最高吞吐，最热）</item>
+        <item>均衡（推荐）</item>
+        <item>省电（最不热，最慢）</item>
+        <item>默认（驱动决定）</item>
+    </string-array>
+    <string-array name="npu_power_mode_values">
+        <item>burst</item>
+        <item>sustained</item>
+        <item>power_saver</item>
+        <item>default</item>
+    </string-array>
+
+    <string name="downloading_x">正在下载 %1$s…</string>
+    <string name="share_log">分享日志</string>
+
+</resources>

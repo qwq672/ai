@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/cat_generation">
+        <SeekBarPreference
+            android:key="temperature"
+            android:title="@string/pref_temperature"
+            android:summary="@string/pref_temperature_summary"
+            android:defaultValue="7"
+            android:max="20"
+            app:min="0"
+            app:showSeekBarValue="true" />
+
+        <SeekBarPreference
+            android:key="top_p"
+            android:title="@string/pref_top_p"
+            android:summary="@string/pref_top_p_summary"
+            android:defaultValue="9"
+            android:max="10"
+            app:min="0"
+            app:showSeekBarValue="true" />
+
+        <SeekBarPreference
+            android:key="top_k"
+            android:title="@string/pref_top_k"
+            android:summary="@string/pref_top_k_summary"
+            android:defaultValue="40"
+            android:max="200"
+            app:min="1"
+            app:showSeekBarValue="true" />
+
+        <SeekBarPreference
+            android:key="repetition_penalty"
+            android:title="@string/pref_rep_pen"
+            android:summary="@string/pref_rep_pen_summary"
+            android:defaultValue="11"
+            android:max="20"
+            app:min="5"
+            app:showSeekBarValue="true" />
+
+        <SeekBarPreference
+            android:key="max_tokens"
+            android:title="@string/pref_max_tokens"
+            android:summary="@string/pref_max_tokens_summary"
+            android:defaultValue="2048"
+            android:max="8192"
+            app:min="64"
+            app:showSeekBarValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="enable_thinking"
+            android:title="@string/pref_enable_thinking"
+            android:summary="@string/pref_enable_thinking_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/cat_npu">
+        <ListPreference
+            android:key="npu_power_mode"
+            android:title="@string/pref_npu_power_mode"
+            android:summary="@string/pref_npu_power_mode_summary"
+            android:entries="@array/npu_power_mode_entries"
+            android:entryValues="@array/npu_power_mode_values"
+            android:defaultValue="sustained" />
+
+        <SeekBarPreference
+            android:key="vtcm_mb"
+            android:title="@string/pref_vtcm"
+            android:summary="@string/pref_vtcm_summary"
+            android:defaultValue="0"
+            android:max="64"
+            app:min="0"
+            app:showSeekBarValue="true" />
+
+        <ListPreference
+            android:key="cpu_threads_mode"
+            android:title="@string/pref_cpu_threads_mode"
+            android:summary="@string/pref_cpu_threads_mode_summary"
+            android:entries="@array/cpu_threads_mode_entries"
+            android:entryValues="@array/cpu_threads_mode_values"
+            android:defaultValue="auto" />
+
+        <SeekBarPreference
+            android:key="cpu_threads"
+            android:title="@string/pref_cpu_threads"
+            android:summary="@string/pref_cpu_threads_summary"
+            android:defaultValue="4"
+            android:max="16"
+            app:min="1"
+            app:showSeekBarValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="thermal_throttle"
+            android:title="@string/pref_thermal_throttle"
+            android:summary="@string/pref_thermal_throttle_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/cat_download">
+        <ListPreference
+            android:key="download_source"
+            android:title="@string/pref_download_source"
+            android:summary="@string/pref_download_source_summary"
+            android:entries="@array/download_source_entries"
+            android:entryValues="@array/download_source_values"
+            android:defaultValue="auto" />
+
+        <SwitchPreferenceCompat
+            android:key="use_hf_mirror"
+            android:title="@string/pref_use_hf_mirror"
+            android:summary="@string/pref_use_hf_mirror_summary"
+            android:defaultValue="true" />
+
+        <Preference
+            android:key="clear_models"
+            android:title="@string/pref_clear_models"
+            android:summary="@string/pref_clear_models_summary" />
+
+        <Preference
+            android:key="disk_usage"
+            android:title="@string/pref_disk_usage"
+            android:summary="@string/pref_disk_usage_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/cat_ui">
+        <SwitchPreferenceCompat
+            android:key="show_profiling"
+            android:title="@string/pref_show_profiling"
+            android:summary="@string/pref_show_profiling_summary"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="chat_history_enabled"
+            android:title="@string/pref_chat_history"
+            android:summary="@string/pref_chat_history_summary"
+            android:defaultValue="true" />
+
+        <Preference
+            android:key="clear_history_now"
+            android:title="@string/pref_clear_history_now"
+            android:summary="@string/pref_clear_history_now_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/cat_log">
+        <SwitchPreferenceCompat
+            android:key="log_enabled"
+            android:title="@string/pref_log_enabled"
+            android:summary="@string/pref_log_enabled_summary"
+            android:defaultValue="true" />
+
+        <Preference
+            android:key="share_log"
+            android:title="@string/pref_share_log"
+            android:summary="@string/pref_share_log_summary" />
+
+        <Preference
+            android:key="clear_log"
+            android:title="@string/pref_clear_log"
+            android:summary="@string/pref_clear_log_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/cat_about">
+        <Preference
+            android:key="version"
+            android:title="@string/pref_version"
+            android:summary="@string/pref_version_summary" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

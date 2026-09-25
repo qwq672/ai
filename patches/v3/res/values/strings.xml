@@ -1,0 +1,91 @@
+<resources>
+    <string name="app_name">GenieXDemo</string>
+    <string name="blank_index_tip">Please import files before starting your search.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Main UI -->
+    <string name="btn_import">Import</string>
+    <string name="btn_models">Models</string>
+    <string name="btn_settings">Settings</string>
+    <string name="compat_badge">Compatible device badge</string>
+    <string name="prefill_speed_label">Prefill</string>
+    <string name="decode_speed_label">Decode</string>
+    <string name="ttft_label">TTFT</string>
+
+    <!-- Model manager activity -->
+    <string name="model_manager_title">Model Manager</string>
+    <string name="import_gguf">Import GGUF</string>
+    <string name="close">Close</string>
+    <string name="cancel">Cancel</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="downloading">Downloading…</string>
+    <string name="already_downloading">A download is already in progress.</string>
+    <string name="need_download_first">Not downloaded yet. Tap Download first.</string>
+    <string name="local_ready">%1$s is ready — tap Pick to use.</string>
+    <string name="download_complete">Download complete: %1$s</string>
+    <string name="download_complete_mb">Downloaded %1$s (%2$d MB)</string>
+    <string name="download_failed">Download failed: %1$s</string>
+    <string name="hf_mirror_hint">Mirror download failed. Try: %1$s</string>
+    <string name="only_gguf">Only .gguf files are supported.</string>
+    <string name="imported_mb">Imported %1$s (%2$d MB)</string>
+    <string name="import_failed">Import failed.</string>
+    <string name="confirm_delete">Delete model</string>
+    <string name="confirm_delete_msg">Delete "%1$s"? This cannot be undone.</string>
+    <string name="delete">Delete</string>
+    <string name="deleted">Deleted.</string>
+    <string name="delete_failed">Delete failed.</string>
+    <string name="use_this">Pick</string>
+    <string name="detail">Detail</string>
+    <string name="download">Download</string>
+    <string name="device_info_fmt">Device: %1$s (%2$s, Htp %3$s)</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="cat_generation">Generation</string>
+    <string name="pref_temperature">Temperature</string>
+    <string name="pref_temperature_summary">Higher = more creative, lower = more deterministic</string>
+    <string name="pref_top_p">Top-P</string>
+    <string name="pref_top_p_summary">Nucleus sampling threshold</string>
+    <string name="pref_top_k">Top-K</string>
+    <string name="pref_top_k_summary">Limit next-token candidates to the top K</string>
+    <string name="pref_rep_pen">Repetition penalty</string>
+    <string name="pref_rep_pen_summary">Penalise repeated tokens (1.0 = off)</string>
+    <string name="pref_max_tokens">Max tokens</string>
+    <string name="pref_max_tokens_summary">Maximum tokens to generate per reply</string>
+    <string name="pref_enable_thinking">Enable thinking</string>
+    <string name="pref_enable_thinking_summary">Show the model\'s reasoning trace (some models)</string>
+
+    <string name="cat_npu">NPU &amp; Performance</string>
+    <string name="pref_npu_power_mode">NPU power mode</string>
+    <string name="pref_npu_power_mode_summary">Lower modes reduce heat at the cost of throughput</string>
+    <string name="pref_vtcm">VTCM size (MB)</string>
+    <string name="pref_vtcm_summary">0 = driver default. Larger = faster but uses more memory.</string>
+    <string name="pref_cpu_threads">CPU threads</string>
+    <string name="pref_cpu_threads_summary">Number of threads for non-NPU paths</string>
+    <string name="pref_thermal_throttle">Thermal throttle</string>
+    <string name="pref_thermal_throttle_summary">Limit threads to reduce sustained heat</string>
+
+    <string name="cat_ui">User Interface</string>
+    <string name="pref_show_profiling">Show profiling under replies</string>
+    <string name="pref_show_profiling_summary">Display TTFT / prefill speed / decode speed</string>
+    <string name="pref_use_hf_mirror">Use HF mirror (hf-mirror.com)</string>
+    <string name="pref_use_hf_mirror_summary">Route HuggingFace downloads through the China mirror</string>
+
+    <string name="cat_log">Logging</string>
+    <string name="pref_log_enabled">Enable file logging</string>
+    <string name="pref_log_enabled_summary">Write logs to /Android/data/com.geniex.demo/files/app.log</string>
+    <string name="pref_share_log">Share log file</string>
+    <string name="pref_share_log_summary">Send app.log via the system share sheet</string>
+    <string name="pref_clear_log">Clear log file</string>
+    <string name="pref_clear_log_summary">Truncate app.log to zero bytes</string>
+    <string name="log_empty">Log file is empty or doesn\'t exist.</string>
+    <string name="log_cleared">Log cleared.</string>
+
+    <!-- Profile footer under each AI reply -->
+    <string name="profile_summary_fmt">TTFT %1$s ms · prefill %2$s tok/s (%3$d tokens) · decode %4$s tok/s (%5$d tokens) · stop: %6$s</string>
+
+    <string name="toast_model_picked">Picked: %1$s</string>
+    <string name="downloading_x">Downloading %1$s…</string>
+    <string name="share_log">Share log</string>
+
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="npu_power_mode_entries">
+        <item>Burst (max throughput, most heat)</item>
+        <item>Sustained (balanced)</item>
+        <item>Power saver (least heat)</item>
+        <item>Default (driver chooses)</item>
+    </string-array>
+    <string-array name="npu_power_mode_values">
+        <item>burst</item>
+        <item>sustained</item>
+        <item>power_saver</item>
+        <item>default</item>
+    </string-array>
+</resources>

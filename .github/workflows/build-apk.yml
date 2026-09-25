@@ -3,6 +3,9 @@ name: Build GenieX Chat Android APK
 on:
   push:
     branches: [main, master]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
   workflow_dispatch:
 
 jobs:
@@ -17,7 +20,7 @@ jobs:
       - name: Checkout qwq672/ai
         uses: actions/checkout@v4
 
-      - name: Checkout qualcomm/ai-hub-apps (release branch, sparse checkout of geniex_chat_android)
+      - name: Checkout qualcomm/ai-hub-apps (release branch, geniex_chat_android)
         run: |
           # 把源码放在 ai-hub-apps/ 下，保持原仓库目录结构（_shared 等路径相对引用）
           mkdir -p ai-hub-apps
@@ -27,62 +30,70 @@ jobs:
           git config --local gc.auto 0
           git -c protocol.version=2 fetch --no-tags --depth=1 origin release
           git checkout FETCH_HEAD
-          # 只保留 geniex_chat_android 目录与根 LICENSE（README 引用）
-          # 但 _shared/android/common.gradle 是空文件，build.gradle 检查其存在性，因此只需保留 geniex_chat_android
-          # 顶层 LICENSE 是 README 中的相对链接，不影响构建
-          echo "源码已就位："
-          ls -la
-          echo ""
-          echo "geniex_chat_android 目录："
+          echo "::group::geniex_chat_android 目录内容"
           ls -la geniex_chat_android
+          echo "::endgroup::"
 
-      - name: Set up JDK 17 (Microsoft Build)
+      - name: Set up JDK 17 (Temurin)
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Set up Gradle
+      - name: Set up Gradle 9.1.0
         run: |
           GRADLE_VERSION="9.1.0"
           wget -q "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" -O /tmp/gradle.zip
           unzip -q /tmp/gradle.zip -d "$HOME"
           echo "$HOME/gradle-${GRADLE_VERSION}/bin" >> "$GITHUB_PATH"
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          packages: |
-            platforms;android-34
-            build-tools;34.0.0
+      - name: Set up Android SDK components
+        run: |
+          # ubuntu-24.04 runner 已预装 Android SDK at /usr/local/lib/android/sdk
+          # 自带 cmdline-tools，直接用 sdkmanager 安装组件
+          export ANDROID_HOME="/usr/local/lib/android/sdk"
+          echo "ANDROID_HOME=$ANDROID_HOME" >> "$GITHUB_ENV"
+          echo "ANDROID_SDK_ROOT=$ANDROID_HOME" >> "$GITHUB_ENV"
+          echo "$ANDROID_HOME/cmdline-tools/latest/bin" >> "$GITHUB_PATH"
+          echo "$ANDROID_HOME/platform-tools" >> "$GITHUB_PATH"
+
+          yes | sdkmanager --licenses > /dev/null 2>&1 || true
+
+          # 注意：每个包名必须作为独立的参数（不能写成多行字符串）
+          sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+          echo "::group::已安装 SDK 组件"
+          ls "$ANDROID_HOME"
+          echo "::endgroup::"
 
       - name: Install Android NDK 27.3.13750724
         run: |
-          yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager "ndk;27.3.13750724" >/dev/null 2>&1 || true
+          yes | sdkmanager "ndk;27.3.13750724" >/dev/null 2>&1 || true
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.3.13750724" >> "$GITHUB_ENV"
           echo "ANDROID_NDK_ROOT=$ANDROID_HOME/ndk/27.3.13750724" >> "$GITHUB_ENV"
+          echo "::group::已安装 NDK"
           ls "$ANDROID_HOME/ndk/"
+          echo "::endgroup::"
 
       - name: Build APK (assembleDebug)
         working-directory: ai-hub-apps/geniex_chat_android
         env:
           GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4G -Dfile.encoding=UTF-8"
         run: |
-          chmod +x ./gradlew 2>/dev/null || true
           # 项目根没有 gradlew（依赖外部 gradle），直接调用全局 gradle
           gradle --no-daemon --stacktrace assembleDebug
 
       - name: Locate built APK
         working-directory: ai-hub-apps/geniex_chat_android
         run: |
-          echo "=== build/outputs 树 ==="
+          echo "::group::build/outputs APK 列表"
           find build/outputs -type f -name "*.apk" 2>/dev/null
+          echo "::endgroup::"
           APK="$(find build/outputs -type f -name 'app-debug.apk' | head -n1)"
           if [ -z "$APK" ]; then
             APK="$(find build/outputs -type f -name '*.apk' | head -n1)"
           fi
           echo "APK_PATH=$APK" >> "$GITHUB_ENV"
-          echo "找到 APK: $APK"
+          echo "::notice::APK 路径: $APK"
           ls -lh "$APK"
 
       - name: Upload APK to Actions Artifacts

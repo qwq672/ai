@@ -1,3 +1,5 @@
+此仓库将不再更新，其源码或内容将会合并进[AIBox](https://github.com/qwq672/mobile-ai-box)。
+
 # qwq672/ai
 
 GenieX Chat Android (debug) APK build for [qualcomm/ai-hub-apps@release/geniex_chat_android](https://github.com/qualcomm/ai-hub-apps/tree/release/geniex_chat_android).
